@@ -11,8 +11,8 @@ public class Telephone {
 		this.numero = numero;
 	}
 
-	@Override
-	public String toString() {
+
+	public String afficher() {
 		
 	return  tel_type + " -- " + numero;
 	

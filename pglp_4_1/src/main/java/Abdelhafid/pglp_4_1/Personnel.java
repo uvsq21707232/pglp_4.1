@@ -3,7 +3,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Personnel {
+
+public final class Personnel implements PersonnelInterface{
 	
 	private final String Nom;
 	private final String Prenom;
@@ -12,9 +13,17 @@ public final class Personnel {
 	private final String fonction;
 	private final LocalDate date_naissance;
 	
-	
-	
-	
+	private Personnel(PersonnelBuilder builder) {
+		
+		 Nom = builder.Nom;
+		 Prenom = builder.Prenom;
+		 fonction = builder.fonction;
+		 date_naissance = builder.date_naissance;
+		 num_telephones=builder.num_telephones;
+		 
+		
+		
+	}
 	
 	
 	/* Builder*/
@@ -24,7 +33,7 @@ public final class Personnel {
 		private final String Nom;
 		private final String Prenom;
 		private final String fonction;
-		private List<Telephone> num_telephones = new ArrayList<Telephone>();
+		private List<Telephone> num_telephones=new ArrayList<Telephone>();
 		private LocalDate date_naissance;
 		
 		
@@ -61,17 +70,7 @@ public final class Personnel {
 	}
 	
 	
-	private Personnel(PersonnelBuilder builder) {
-		
-		 Nom = builder.Nom;
-		 Prenom = builder.Prenom;
-		 fonction = builder.fonction;
-		 date_naissance = builder.date_naissance;
-		 num_telephones=builder.num_telephones;
-		 
-		
-		
-	}
+
 	
 		public List<Telephone> getNum_telephones() {
 			
@@ -103,7 +102,11 @@ public final class Personnel {
 		}
 		
 	
- 
+		public void print() {
+			System.out.println(Nom + " " + Prenom + " \nFonction: " 
+			+ fonction + "\ndate de naissance: "+ date_naissance + "\n");
+			
+		}
 
 
 

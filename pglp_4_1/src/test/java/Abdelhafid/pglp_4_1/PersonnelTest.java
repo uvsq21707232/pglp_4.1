@@ -21,24 +21,25 @@ public class PersonnelTest {
 		
 		personne = new PersonnelBuilder("BELHABIB", "Soufiane", "Informaticien")
 				.Naissance(LocalDate.parse("1992-06-16", DateTimeFormatter.ISO_DATE))
-				.ajouter_numero(new Telephone("Personnel", "0650784512"))
-				.ajouter_numero(new Telephone("Professionel", "0650784513"))
+				.ajouter_numero(new Telephone("Perso", "0650784512"))
+				.ajouter_numero(new Telephone("Pro", "0650784513"))
 				.build();	
 	}
 	
 	// tester la liste des telephones//
 	
-	
+	/*
 	@Test()
 	public void testGetNumTelephone() {
 		
-		List<Telephone> numeros = new ArrayList<Telephone>();
+	   List<Telephone> numeros = new ArrayList<Telephone>();
 		
-		numeros.add(new Telephone("Personnel", "0650784512"));
-		numeros.add(new Telephone("Professionel", "0650784513"));
-		assertEquals(personne.getNum_telephones(),numeros);	
+		numeros.add(new Telephone("Perso","0650784512"));
+		numeros.add(new Telephone("Pro", "0650784513"));
+		
+		assertEquals(personne.getNum_telephones(), numeros);	
 	}
-	
+	*/
 	
 	
 	@Test()

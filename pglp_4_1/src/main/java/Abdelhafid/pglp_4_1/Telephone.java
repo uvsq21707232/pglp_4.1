@@ -2,22 +2,35 @@ package Abdelhafid.pglp_4_1;
 
 public class Telephone {
 	
-	private TypeTelephone tel_type;
+	private String tel_type;
 	private int numero;
 	
-	public Telephone(TypeTelephone tel_type, int numero) {
+	public Telephone(String tel_type, int numero) {
 	
 		this.tel_type = tel_type;
 		this.numero = numero;
 	}
+
+	@Override
+	public String toString() {
+		
+	return  tel_type + " -- " + numero;
 	
-	public TypeTelephone getTel_type() {
+	}
+
+	public String getTel_type() {
 		return tel_type;
 	}
+
 	
+
 	public int getNumero() {
 		return numero;
 	}
+
+	
+	
+	
 	
 	
 	

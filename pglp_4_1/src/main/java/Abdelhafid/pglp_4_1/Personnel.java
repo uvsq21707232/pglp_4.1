@@ -7,20 +7,23 @@ public final class Personnel {
 	
 	private final String Nom;
 	private final String Prenom;
+	private List<Telephone> num_telephones;
 	
-	private List<Telephone> telephone = new ArrayList<>();
-	
-	private final Fonction fonction;
+	private final String fonction;
 	private final LocalDate date_naissance;
+	
+	
 	
 	
 	private Personnel(PersonnelBuilder builder) {
 		
-		 this.Nom = builder.Nom;
-		 this.Prenom = builder.Prenom;
-		 this.fonction = builder.fonction;
-		 this.date_naissance = builder.date_naissance;
-		 this.telephone=builder.telephone;
+		 Nom = builder.Nom;
+		 Prenom = builder.Prenom;
+		 fonction = builder.fonction;
+		 date_naissance = builder.date_naissance;
+		 num_telephones=builder.num_telephones;
+		 
+		
 		
 	}
 	
@@ -31,72 +34,82 @@ public final class Personnel {
 		
 		private final String Nom;
 		private final String Prenom;
-		
-		private List<Telephone> telephone = new ArrayList<>();
-		
-		private Fonction fonction;
-		
+		private final String fonction;
+		private List<Telephone> num_telephones = new ArrayList<Telephone>();
 		private LocalDate date_naissance;
 		
 		
 		
-		public PersonnelBuilder(String nom , String prenom) {
+		public PersonnelBuilder (String nom , String prenom,String fonction) {
 			
 			this.Nom=nom;
 			this.Prenom=prenom;	
-		}
+			this.fonction=fonction;
+	    }
 		
-		public PersonnelBuilder Fonction(Fonction fonc) {
-			this.fonction=fonc;
-			return this;
-			
-		}
 		
-		public  PersonnelBuilder Naissance(LocalDate naissance) {
+		
+		public  PersonnelBuilder Naissance (LocalDate naissance) {
 			
 			this.date_naissance =naissance;
 			return this;
 			
 		}
 		
+		
+		public PersonnelBuilder ajouter_numero( Telephone Tel_numero) {
+			this.num_telephones.add(Tel_numero);
+			return this;
+		}
+
+		
 
 		public Personnel build() {
 		return new Personnel(this);	
 		}
-		
-		
-		public void ajoutTel(Telephone tel) {
-			this.telephone.add(tel);
-		}
-		
-  public  PersonnelBuilder Telephone(Telephone tel) {
-			
-     this.telephone.add(tel);
-     return this;
-			
+
+
+
+		@Override
+		public String toString() {
+			return "PersonnelBuilder [Nom=" + Nom + ", Prenom=" + Prenom + ", fonction=" + fonction
+					+ ", num_telephones=" + num_telephones + ", date_naissance=" + date_naissance + "]";
 		}
 
-public List<Telephone> getTelephone() {
-	return telephone;
-}
+
+
+		public List<Telephone> getNum_telephones() {
+			return num_telephones;
+		}
 
 
 
-public Fonction getFonction() {
-	return fonction;
-}
 
-public LocalDate getDate_naissance() {
-	return date_naissance;
-}
+		public LocalDate getDate_naissance() {
+			return date_naissance;
+		}
 
-public String getNom() {
-	return Nom;
-}
 
-public String getPrenom() {
-	return Prenom;
-}
+		public String getNom() {
+			return Nom;
+		}
+
+
+
+		public String getPrenom() {
+			return Prenom;
+		}
+
+
+
+		public String getFonction() {
+			return fonction;
+		}
+		
+	
+ 
+
+
 
 }
 }

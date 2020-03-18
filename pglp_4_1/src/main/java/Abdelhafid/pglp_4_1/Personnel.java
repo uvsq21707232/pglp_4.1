@@ -15,22 +15,11 @@ public final class Personnel {
 	
 	
 	
-	private Personnel(PersonnelBuilder builder) {
-		
-		 Nom = builder.Nom;
-		 Prenom = builder.Prenom;
-		 fonction = builder.fonction;
-		 date_naissance = builder.date_naissance;
-		 num_telephones=builder.num_telephones;
-		 
-		
-		
-	}
 	
 	
 	/* Builder*/
 	
-	public static class PersonnelBuilder{
+	public static class PersonnelBuilder {
 		
 		private final String Nom;
 		private final String Prenom;
@@ -40,7 +29,7 @@ public final class Personnel {
 		
 		
 		
-		public PersonnelBuilder (String nom , String prenom,String fonction) {
+		public PersonnelBuilder(String nom ,String prenom,String fonction) {
 			
 			this.Nom=nom;
 			this.Prenom=prenom;	
@@ -49,7 +38,7 @@ public final class Personnel {
 		
 		
 		
-		public  PersonnelBuilder Naissance (LocalDate naissance) {
+		public  PersonnelBuilder Naissance(LocalDate naissance) {
 			
 			this.date_naissance =naissance;
 			return this;
@@ -63,22 +52,29 @@ public final class Personnel {
 		}
 
 		
+	
 
 		public Personnel build() {
 		return new Personnel(this);	
 		}
-
-
-
-		@Override
-		public String toString() {
-			return "PersonnelBuilder [Nom=" + Nom + ", Prenom=" + Prenom + ", fonction=" + fonction
-					+ ", num_telephones=" + num_telephones + ", date_naissance=" + date_naissance + "]";
-		}
-
-
-
+		
+	}
+	
+	
+	private Personnel(PersonnelBuilder builder) {
+		
+		 Nom = builder.Nom;
+		 Prenom = builder.Prenom;
+		 fonction = builder.fonction;
+		 date_naissance = builder.date_naissance;
+		 num_telephones=builder.num_telephones;
+		 
+		
+		
+	}
+	
 		public List<Telephone> getNum_telephones() {
+			
 			return num_telephones;
 		}
 
@@ -111,5 +107,5 @@ public final class Personnel {
 
 
 
-}
+
 }

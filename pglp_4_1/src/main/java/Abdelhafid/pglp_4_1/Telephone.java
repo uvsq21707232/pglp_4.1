@@ -3,9 +3,9 @@ package Abdelhafid.pglp_4_1;
 public class Telephone {
 	
 	private String tel_type;
-	private int numero;
+	private String numero;
 	
-	public Telephone(String tel_type, int numero) {
+	public Telephone(String tel_type, String numero) {
 	
 		this.tel_type = tel_type;
 		this.numero = numero;
@@ -24,7 +24,7 @@ public class Telephone {
 
 	
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 

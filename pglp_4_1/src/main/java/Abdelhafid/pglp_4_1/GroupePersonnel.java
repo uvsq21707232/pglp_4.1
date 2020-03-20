@@ -1,8 +1,9 @@
 package Abdelhafid.pglp_4_1;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class GroupePersonnel implements PersonnelInterface {
+public class GroupePersonnel implements PersonnelInterface,Iterable<PersonnelInterface>{
 	
 	
 	private ArrayList<PersonnelInterface> liste_personnels;
@@ -26,7 +27,7 @@ public class GroupePersonnel implements PersonnelInterface {
 	}
 	
 	
-	/*ajouter une personne  */
+	/*ajouter une personne à la liste si elle n'éxiste pas déja  */
 	
 	public GroupePersonnel ajouter(final PersonnelInterface per_inter) {
 		if (!liste_personnels.contains(per_inter)) {
@@ -35,7 +36,7 @@ public class GroupePersonnel implements PersonnelInterface {
 		return this;
 	}
 	
- /* Supprimer une personne */
+ /* Supprimer une personne si elle éxiste dans la liste */
 	
 	public GroupePersonnel supprimer(final PersonnelInterface per_inter) {
 		
@@ -48,6 +49,12 @@ public class GroupePersonnel implements PersonnelInterface {
 
 	public int getId_composite() {
 		return id_composite;
+	}
+
+	@Override
+	public Iterator<PersonnelInterface> iterator() {
+		
+		return liste_personnels.iterator();
 	}
 
 }
